@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>El Yazısı OCR (Django)</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Yükle ve Tanı</button>
+    </form>
+
+    <h2>OCR Sonucu:</h2>
+    {% if ocr_text %}
+    <p>{{ ocr_text }}</p>
+    {% endif %}
+</body>
+</html>
